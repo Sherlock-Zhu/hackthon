@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: wenoti
+  name: wenoti
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wenoti
+  template:
+    metadata:
+      labels:
+        app: wenoti
+    spec:
+      containers:
+      - image: runlongreg.azurecr.io/wechatnotify:alpha1
+        name: notifier
+        ports:
+        - containerPort: 443
+          name: api
+          protocol: TCP
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: wenoti
+  name: wenoti
+  annotations:
+    service.beta.kubernetes.io/azure-load-balancer-resource-group: stable
+spec:
+  loadBalancerIP: 20.198.66.35
+  ports:
+  - port: 443
+    name: server-api
+    protocol: TCP
+    targetPort: 443
+  selector:
+    app: wenoti
+  type: LoadBalancer
+  externalTrafficPolicy: Local
