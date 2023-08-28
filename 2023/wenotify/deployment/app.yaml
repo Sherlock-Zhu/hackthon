@@ -21,6 +21,9 @@ spec:
         - containerPort: 443
           name: api
           protocol: TCP
+        env:
+        - name: PYTHONUNBUFFERED
+          value: 0
 
 ---
 
