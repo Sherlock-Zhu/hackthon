@@ -23,7 +23,7 @@ spec:
           protocol: TCP
         env:
         - name: PYTHONUNBUFFERED
-          value: 0
+          value: "0"
 
 ---
 
