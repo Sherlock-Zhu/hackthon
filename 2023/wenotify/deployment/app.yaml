@@ -21,7 +21,7 @@ spec:
         - containerPort: 443
           name: api
           protocol: TCP
-      - image: runlongreg.azurecr.io/getcase:alphav1.3
+      - image: runlongreg.azurecr.io/getcase:alphav1.4
         name: catcher
 #        env:
 #        - name: PYTHONUNBUFFERED
