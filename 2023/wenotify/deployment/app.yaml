@@ -15,7 +15,7 @@ spec:
         app: wenoti
     spec:
       containers:
-      - image: runlongreg.azurecr.io/wechatnotify:alphav1.3
+      - image: runlongreg.azurecr.io/wechatnotify:alphav1.4
         name: notifier
         ports:
         - containerPort: 443
