@@ -15,13 +15,13 @@ spec:
         app: wenoti
     spec:
       containers:
-      - image: runlongreg.azurecr.io/wechatnotify:alphav1.4
+      - image: runlongreg.azurecr.io/wechatnotify:alphav1.5
         name: notifier
         ports:
         - containerPort: 443
           name: api
           protocol: TCP
-      - image: runlongreg.azurecr.io/getcase:alphav1.4
+      - image: runlongreg.azurecr.io/getcase:alphav1.5
         name: catcher
 #        env:
 #        - name: PYTHONUNBUFFERED
