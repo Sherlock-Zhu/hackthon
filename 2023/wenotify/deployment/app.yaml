@@ -16,12 +16,14 @@ spec:
     spec:
       containers:
       - image: runlongreg.azurecr.io/wechatnotify:alphav1.5
+        imagePullPolicy: "Always"                                                                              
         name: notifier
         ports:
         - containerPort: 443
           name: api
           protocol: TCP
       - image: runlongreg.azurecr.io/getcase:alphav1.5
+        imagePullPolicy: "Always"
         name: catcher
 #        env:
 #        - name: PYTHONUNBUFFERED
