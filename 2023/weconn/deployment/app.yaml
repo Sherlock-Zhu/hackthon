@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: wecon
+  name: wecon
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wecon
+  template:
+    metadata:
+      labels:
+        app: wecon
+    spec:
+      containers:
+      - image: runlongreg.azurecr.io/wechatconn:alphav1.0
+        imagePullPolicy: "Always"                                                                              
+        name: notifier
+        ports:
+        - containerPort: 80
+          name: api
+          protocol: TCP
+#        env:
+#        - name: PYTHONUNBUFFERED
+#          value: "0"
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: wecon
+  name: wecon
+  annotations:
+    service.beta.kubernetes.io/azure-load-balancer-resource-group: stable
+spec:
+  loadBalancerIP: 20.198.66.35
+  ports:
+  - port: 80
+    name: server-api
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: wenoti
+  type: LoadBalancer
+  externalTrafficPolicy: Local
