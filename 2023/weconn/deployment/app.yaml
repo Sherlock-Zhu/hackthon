@@ -44,6 +44,6 @@ spec:
     protocol: TCP
     targetPort: 80
   selector:
-    app: wenoti
+    app: wecon
   type: LoadBalancer
   externalTrafficPolicy: Local
