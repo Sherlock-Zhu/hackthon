@@ -15,7 +15,7 @@ spec:
         app: wecon
     spec:
       containers:
-      - image: runlongreg.azurecr.io/wechatconn:alphav1.0
+      - image: runlongreg.azurecr.io/wechatconn:alphav1.1
         imagePullPolicy: "Always"                                                                              
         name: notifier
         ports:
