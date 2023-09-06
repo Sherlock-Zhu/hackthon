@@ -15,16 +15,13 @@ spec:
         app: wenoti
     spec:
       containers:
-      - image: runlongreg.azurecr.io/wechatnotify:alphav1.5
+      - image: runlongreg.azurecr.io/wechatcom:alphav2.0
         imagePullPolicy: "Always"                                                                              
-        name: notifier
+        name: wechatcom
         ports:
-        - containerPort: 443
+        - containerPort: 8848
           name: api
           protocol: TCP
-      - image: runlongreg.azurecr.io/getcase:alphav1.5
-        imagePullPolicy: "Always"
-        name: catcher
 #        env:
 #        - name: PYTHONUNBUFFERED
 #          value: "0"
@@ -42,10 +39,10 @@ metadata:
 spec:
   loadBalancerIP: 20.198.66.35
   ports:
-  - port: 443
+  - port: 8848
     name: server-api
     protocol: TCP
-    targetPort: 443
+    targetPort: 8848
   selector:
     app: wenoti
   type: LoadBalancer
