@@ -4,6 +4,7 @@ metadata:
   labels:
     app: wenoti
   name: wenoti
+  namespace: wechat  
 spec:
   replicas: 1
   selector:
@@ -45,6 +46,7 @@ metadata:
   labels:
     app: wenoti
   name: wenoti
+  namespace: wechat
   annotations:
     service.beta.kubernetes.io/azure-load-balancer-resource-group: stable
 spec:
