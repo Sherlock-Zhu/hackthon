@@ -16,7 +16,7 @@ spec:
         app: wenoti
     spec:
       containers:
-      - image: runlongreg.azurecr.io/wechatcom:alphav2.10.5
+      - image: runlongreg.azurecr.io/wechatcom:alphav2.10.6
         imagePullPolicy: "Always"                                                                              
         name: wechatcom
         ports:
