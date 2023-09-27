@@ -14,6 +14,7 @@
 
 1. Add user self-registration logic
 2. Optimize collab tracing needed case number
+3. Add long-term monitoring logic for the case didn't met SLA
 
 ## Bug record and fix
 
